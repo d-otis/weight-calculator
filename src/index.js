@@ -26,6 +26,16 @@ const twoAndHalf = document.getElementById("plate-2.5")
 
 const total = document.getElementById("total")
 
+const animate = document.getElementById("animate")
+
+animate.addEventListener("webkitAnimationEnd", e => {
+  e.target.removeAttribute('class')
+})
+
+animate.addEventListener("animationend", e => {
+  e.target.removeAttribute('class')
+})
+
 const calculate = () => {
   let plateArray = []
   Object.entries(resultObj).forEach(el => {
@@ -36,6 +46,7 @@ const calculate = () => {
   plateArray.push(resultObj.bar)
   result = plateArray.reduce((acc, total) => acc + total)
   total.innerText = result
+  animate.classList.add("animate__animated", "animate__rubberBand")
 }
 
 const updateBar = e => {
