@@ -1,4 +1,4 @@
-const resultObj = {
+const INITIAL_STATE = {
   bar: 45,
   45: null,
   35: null,
@@ -8,6 +8,16 @@ const resultObj = {
   5: null,
   2.5: null
 }
+
+let weightObj = Object.assign({}, INITIAL_STATE)
+
+const reset = () => {
+  weightObj = {
+    ...INITIAL_STATE
+  }
+  plates.forEach(plate => plate.checked = false)
+  total.innerText = weightObj.bar
+} 
 
 let result
 
@@ -24,6 +34,18 @@ const ten = document.getElementById("plate-10")
 const five = document.getElementById("plate-5")
 const twoAndHalf = document.getElementById("plate-2.5")
 
+const plates = [
+  fortyFive,
+  thirtyFive,
+  twentyFive,
+  fifteen,
+  ten,
+  five,
+  twoAndHalf
+]
+
+const clear = document.getElementById("clear")
+
 const total = document.getElementById("total")
 
 const animate = document.getElementById("animate")
@@ -38,27 +60,27 @@ animate.addEventListener("animationend", e => {
 
 const calculate = () => {
   let plateArray = []
-  Object.entries(resultObj).forEach(el => {
+  Object.entries(weightObj).forEach(el => {
     if (el[0] !== "bar" && el[1]) {
       plateArray.push( Number(el[0]) * el[1] )
     }
   })
-  plateArray.push(resultObj.bar)
+  plateArray.push(weightObj.bar)
   result = plateArray.reduce((acc, total) => acc + total)
   total.innerText = result
-  animate.classList.add("animate__animated", "animate__rubberBand")
+  animate.classList.add("animate__animated", "animate__pulse")
 }
 
 const updateBar = e => {
-  resultObj.bar = Number(e.target.value)
+  weightObj.bar = Number(e.target.value)
   calculate()
 }
 
 const updateValue = e => {
-  if (!resultObj[e.target.value]) {
-    resultObj[e.target.value] = 2
+  if (!weightObj[e.target.value]) {
+    weightObj[e.target.value] = 2
   } else {
-    resultObj[e.target.value] = null
+    weightObj[e.target.value] = null
   }
   calculate()
 }
@@ -73,3 +95,8 @@ fifteen.onchange = updateValue
 ten.onchange = updateValue
 five.onchange = updateValue
 twoAndHalf.onchange = updateValue
+
+clear.onclick = () => {
+  reset()
+  console.log('reset')
+}
