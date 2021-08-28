@@ -25,4 +25,8 @@ For quick no fuss calculations with Olympic barbells and weight plates.
 - /src
   - index.js
   - calculator.js
+
+### Todo
+
+- add capabilities for additional even numbers of plates beyond 2
   

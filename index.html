@@ -8,10 +8,89 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>Dan's Weight Calculator</title>
   </head>
   <body>
-    <h1>Hello, world!</h1>
+    <div class="container">
+      <form action="" id="form">
+        <h1>Dan's Weight Calculator</h1>
+        <div class="row mb-3">
+          <div class="col">
+            <h2>Choose Bar Type</h2>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="bar-45" value="45" checked>
+              <label class="form-check-label" for="bar-45">45 lbs</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="bar-35" value="35">
+              <label class="form-check-label" for="bar-35">35 lbs</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col">
+            <h2>Select Weights</h2>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="45" id="plate-45">
+              <label class="form-check-label" for="plate-45">
+                45lbs x 2
+              </label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="35" id="plate-35">
+              <label class="form-check-label" for="plate-35">
+                35lbs x 2
+              </label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="25" id="plate-25">
+              <label class="form-check-label" for="plate-25">
+                25lbs x 2
+              </label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="15" id="plate-15">
+              <label class="form-check-label" for="plate-15">
+                15lbs x 2
+              </label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="10" id="plate-10">
+              <label class="form-check-label" for="plate-10">
+                10lbs x 2
+              </label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="5" id="plate-5">
+              <label class="form-check-label" for="plate-5">
+                5lbs x 2
+              </label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="2.5" id="plate-2.5">
+              <label class="form-check-label" for="plate-2.5">
+                2.5lbs x 2
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <h2>Total: <span id="total">45</span> lbs</h2>
+          </div>
+        </div>
+      
+      </form>
+    </div>
+
 
     <!-- Optional JavaScript; choose one of the two! -->
 
@@ -23,5 +102,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
     -->
+    <script src="/src/calculator.js"></script>
+    <script src="/src/index.js"></script>
   </body>
 </html>
