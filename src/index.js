@@ -9,14 +9,15 @@ const INITIAL_STATE = {
   2.5: null
 }
 
-let weightObj = Object.assign({}, INITIAL_STATE)
+let state = Object.assign({}, INITIAL_STATE)
 
 const reset = () => {
-  weightObj = {
+  state = {
     ...INITIAL_STATE
   }
   plates.forEach(plate => plate.checked = false)
-  total.innerText = weightObj.bar
+  barFortyFive.checked = true
+  total.innerText = state.bar
 } 
 
 let result
@@ -50,37 +51,28 @@ const total = document.getElementById("total")
 
 const animate = document.getElementById("animate")
 
-animate.addEventListener("webkitAnimationEnd", e => {
-  e.target.removeAttribute('class')
-})
-
-animate.addEventListener("animationend", e => {
-  e.target.removeAttribute('class')
-})
-
 const calculate = () => {
   let plateArray = []
-  Object.entries(weightObj).forEach(el => {
+  Object.entries(state).forEach(el => {
     if (el[0] !== "bar" && el[1]) {
       plateArray.push( Number(el[0]) * el[1] )
     }
   })
-  plateArray.push(weightObj.bar)
+  plateArray.push(state.bar)
   result = plateArray.reduce((acc, total) => acc + total)
   total.innerText = result
-  animate.classList.add("animate__animated", "animate__pulse")
 }
 
 const updateBar = e => {
-  weightObj.bar = Number(e.target.value)
+  state.bar = Number(e.target.value)
   calculate()
 }
 
 const updateValue = e => {
-  if (!weightObj[e.target.value]) {
-    weightObj[e.target.value] = 2
+  if (!state[e.target.value]) {
+    state[e.target.value] = 2
   } else {
-    weightObj[e.target.value] = null
+    state[e.target.value] = null
   }
   calculate()
 }
